@@ -1,8 +1,26 @@
 aid: spotter
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spotter.png
 name: Spotter
-description: 'Spotter is a company surfaced as a portfolio company of softbank-vision-fund and added to
-  the API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Spotter is a creator-economy platform that invests in YouTube creators through
+  capital, catalog licensing, and brand partnerships, and connects brands with top
+  long-form YouTube creators for marketing and content opportunities. Its Spotter
+  Studio product provides AI-assisted tooling that helps creators plan, ideate, and
+  optimize their content and titles. The company reports more than $1 billion invested
+  in creators and over 43 billion monthly views across a network that includes
+  creators such as MrBeast, Critical Role, and Sam and Colby. Spotter is backed by
+  SoftBank Vision Fund. No public developer API surface has been found at this time.
 url: https://raw.githubusercontent.com/api-evangelist/spotter/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,13 +30,33 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Consumer
+- Creator Economy
+- Media
+- YouTube
+- Video
+- Marketing
+- Content
 apis: []
+common:
+- type: DomainSecurity
+  url: security/spotter-domain-security.yml
+- type: Website
+  url: https://www.spotter.com/
+- type: TermsOfService
+  url: https://www.spotter.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.spotter.com/privacy-policy
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
