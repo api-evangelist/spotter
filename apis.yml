@@ -20,7 +20,11 @@ description: >-
   optimize their content and titles. The company reports more than $1 billion invested
   in creators and over 43 billion monthly views across a network that includes
   creators such as MrBeast, Critical Role, and Sam and Colby. Spotter is backed by
-  SoftBank Vision Fund. No public developer API surface has been found at this time.
+  SoftBank Vision Fund. Spotter publishes no public developer API: contract discovery on
+  2026-08-13 found no OpenAPI, GraphQL SDL, AsyncAPI, MCP server or A2A agent card on any
+  Spotter host, and the Spotter Studio application backends return 503 to anonymous
+  callers. Spotter Studio is a consumer of the YouTube Data and Analytics APIs via Google
+  OAuth, not a provider of one.
 url: https://raw.githubusercontent.com/api-evangelist/spotter/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -30,7 +34,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Consumer
@@ -40,23 +44,67 @@ tags:
 - Video
 - Marketing
 - Content
+- Creators
+- AI
 apis: []
 common:
 - type: DomainSecurity
   url: security/spotter-domain-security.yml
 - type: Website
   url: https://www.spotter.com/
+- type: Product
+  name: Spotter Studio
+  url: https://www.spotterstudio.com/
 - type: TermsOfService
   url: https://www.spotter.com/terms-of-service
 - type: PrivacyPolicy
   url: https://www.spotter.com/privacy-policy
+- type: Blog
+  url: https://www.spotterstudio.com/blog
+- type: Support
+  name: Spotter Studio Help Center
+  url: https://help.spotterstudio.com/
+- type: SignUp
+  url: https://app.spotterstudio.com/signup
+- type: Login
+  url: https://app.spotterstudio.com/login
+- type: GitHubOrganization
+  url: https://github.com/spotter-dev
+- type: LLMsTxt
+  url: llms/spotter-llms.txt
+- type: Plans
+  url: plans/spotter-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/spotter-rate-limits.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-13'
   status: minimal
-  artifacts_added: 1
+  artifacts_added: 4
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Spotter ships Spotter Studio only as an end-user web app — the app's own backends
+    (bowser/birdo/kirby.api.spotterstudio.com, read out of the SPA bundle) answer HTTP 503
+    to every anonymous request and publish no contract, and there is no developer portal,
+    API reference, SDK, webhook surface or /llms.txt on any Spotter host.
+  evidence:
+  - url: https://bowser.api.spotterstudio.com/openapi.json
+    status: 503
+  - url: https://data-api.api.spotterstudio.com/openapi.json
+    status: 404
+  - url: https://www.spotter.com/developers
+    status: 404
+  - url: https://www.spotterstudio.com/llms.txt
+    status: 404
+  - url: https://www.spotterstudio.com/.well-known/agent-card.json
+    status: 404
+  - url: https://www.spotterstudio.com/pricing
+    status: 401
+  checked: '2026-08-13'
