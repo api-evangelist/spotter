@@ -1,6 +1,6 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of apis.yml + product hosts
 hosts:
 - host: www.spotter.com
   https: true
@@ -8,6 +8,29 @@ hosts:
   cert_expires: Sep 29 22:43:04 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+- host: www.spotterstudio.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  9 18:30:29 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  note: Spotter Studio marketing site (Webflow behind Cloudflare)
+- host: app.spotterstudio.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 18 00:21:54 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+  note: Spotter Studio single-page application
+- host: help.spotterstudio.com
+  https: unknown
+  tls_version: null
+  hsts: null
+  note: >-
+    Intercom-hosted help center (CNAME us.intercomhelpcenter.com). The edge refused the
+    TLS handshake from both LibreSSL 3.3.6 and Python/OpenSSL clients
+    (SSLV3_ALERT_HANDSHAKE_FAILURE), so no posture could be recorded. Reachable in a
+    browser; recorded as unknown rather than as a failure.
 domains:
 - domain: spotter.com
   dnssec: false
@@ -15,3 +38,19 @@ domains:
   spf: true
   dmarc: true
   dmarc_policy: quarantine
+- domain: spotterstudio.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: quarantine
+  note: DMARC rua reports route to dmarc@spotter.la, the corporate domain.
+- domain: spotter.la
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+  note: >-
+    Corporate domain behind Spotter (privacy policy on www.spotter.com links to
+    spotter.la/privacy-policy); www.spotter.la redirects to www.spotter.com.

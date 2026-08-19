@@ -1,0 +1,20 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.spotter.com/ + https://www.spotterstudio.com/ (no developer documentation exists)
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limits are documented because Spotter publishes no API and no developer
+  documentation. There is no developer portal, no API reference, and no public endpoint to
+  observe rate-limit headers on: the Spotter Studio application backends
+  (bowser/birdo/kirby.api.spotterstudio.com) return HTTP 503 to every anonymous request and
+  data-api.api.spotterstudio.com returns 404, so no live RateLimit-*/X-RateLimit-*/
+  Retry-After header could be observed either. An honest zero, not an unchecked field.
+evidence:
+- url: https://www.spotter.com/developers
+  status: 404
+- url: https://www.spotterstudio.com/api
+  status: 404
+- url: https://bowser.api.spotterstudio.com/
+  status: 503

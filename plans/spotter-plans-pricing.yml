@@ -1,0 +1,24 @@
+generated: '2026-08-13'
+method: probed
+source: https://www.spotterstudio.com/pricing
+plan_count: 0
+plans: []
+note: >-
+  Spotter publishes no publicly readable pricing. The only pricing page on any Spotter
+  property, https://www.spotterstudio.com/pricing, is Webflow password-protected: it
+  returns HTTP 401 with the title "Protected page" and a password form (canonical
+  https://www.spotterstudio.com/pricing -> /401), and it is absent from the site's own
+  sitemap.xml. https://www.spotterstudio.com/plans returns 404. The Spotter creator-capital
+  business (catalog licensing, creator advances) is deal-negotiated with no published rate
+  card. Third-party review sites quote a Spotter Studio subscription price, but no
+  provider-published figure could be read, so no plan is recorded here — an unverified
+  price is not data.
+evidence:
+- url: https://www.spotterstudio.com/pricing
+  status: 401
+  note: Webflow page password protection; body is the "Protected page" password form.
+- url: https://www.spotterstudio.com/plans
+  status: 404
+- url: https://www.spotterstudio.com/sitemap.xml
+  status: 200
+  note: /pricing is not listed in the sitemap.
